@@ -1,3 +1,4 @@
+import Link from "next/link";
 import React from "react";
 
 const Header = () => {
@@ -6,12 +7,12 @@ const Header = () => {
       <h1 className="scroll-m-20 text-4xl font-extrabold tracking-tight text-balance mb-6">
         Book Explorer{" "}
       </h1>
-      <a
-        className="scroll-m-20 mb-5 text-2xl font-semibold tracking-tight hover:underline"
-        href="about"
+      <Link
+        className="scroll-m-20 mb-5 text-2xl font-semibold tracking-tight hover:underline underline-offset-2"
+        href={"/about"}
       >
         About
-      </a>
+      </Link>
     </header>
   );
 };
