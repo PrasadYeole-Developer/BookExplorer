@@ -2,11 +2,14 @@
 
 import React, { useState } from "react";
 import { Button } from "./ui/button";
+import getBooks from "@/lib/api";
 
 const Search = () => {
   const [query, setQuery] = useState("");
-  const handleSearch = () => {
-    console.log(query);
+  const handleSearch = async () => {
+    if (!query.trim()) return;
+    const res = await getBooks(query, 1);
+    console.log(res);
   };
   return (
     <div className="search w-full mt-5 flex items-center gap-6 justify-between">
