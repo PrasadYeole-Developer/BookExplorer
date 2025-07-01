@@ -9,13 +9,16 @@ const Home = () => {
   const [books, setBooks] = useState([]);
   const [page, setPage] = useState(1);
   const [query, setQuery] = useState("");
+  const [loading, setLoading] = useState(false);
 
   useEffect(() => {
     if (!query.trim()) return;
 
     const fetchBooks = async () => {
+      setLoading(true);
       const res = await getBooks(query, page);
       setBooks(res);
+      setLoading(false);
     };
 
     fetchBooks();
@@ -30,8 +33,9 @@ const Home = () => {
         setPage={setPage}
         query={query}
         setQuery={setQuery}
+        setLoading={setLoading}
       />
-      <BookList books={books} page={page} setPage={setPage} />
+      <BookList books={books} page={page} setPage={setPage} loading={loading} />
     </div>
   );
 };

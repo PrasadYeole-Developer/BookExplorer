@@ -4,15 +4,16 @@ import React from "react";
 import {
   Pagination,
   PaginationContent,
-  PaginationEllipsis,
   PaginationItem,
   PaginationLink,
   PaginationNext,
   PaginationPrevious,
 } from "@/components/ui/pagination";
 
-const BookList = ({ books, page, setPage }) => {
-  if (!books || books.length === 0) {
+const BookList = ({ books, page, setPage, loading }) => {
+  if (loading)
+    return <p className="mt-10 text-lg animate-pulse">Loading books...</p>;
+  else if (!books || books.length === 0) {
     return <p className="mt-10">No books found.</p>;
   }
   return (
@@ -52,7 +53,7 @@ const BookList = ({ books, page, setPage }) => {
           >
             <PaginationPrevious />
           </PaginationItem>
-          <PaginationLink className="border-1 border-[#202020] ">
+          <PaginationLink className="border-1 border-[#202020]">
             {page}
           </PaginationLink>
           <PaginationItem

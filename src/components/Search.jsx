@@ -4,12 +4,14 @@ import React, { useState } from "react";
 import { Button } from "./ui/button";
 import getBooks from "@/lib/api";
 
-const Search = ({ query, setQuery, setBooks, page, setPage }) => {
+const Search = ({ query, setQuery, setBooks, setPage, setLoading }) => {
   const handleSearch = async () => {
     if (!query.trim()) return;
+    setLoading(true);
     setPage(1);
     const res = await getBooks(query, 1);
     setBooks(res);
+    setLoading(false);
     console.log(res);
   };
   return (
