@@ -4,14 +4,13 @@ import React, { useState } from "react";
 import { Button } from "./ui/button";
 import getBooks from "@/lib/api";
 
-const Search = ({ setBooks }) => {
-  const [query, setQuery] = useState("");
+const Search = ({ query, setQuery, setBooks, page, setPage }) => {
   const handleSearch = async () => {
     if (!query.trim()) return;
+    setPage(1);
     const res = await getBooks(query, 1);
     setBooks(res);
     console.log(res);
-    
   };
   return (
     <div className="search w-full mt-5 flex items-center gap-6 justify-between">
