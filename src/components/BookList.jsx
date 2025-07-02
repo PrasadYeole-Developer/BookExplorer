@@ -9,6 +9,7 @@ import {
   PaginationNext,
   PaginationPrevious,
 } from "@/components/ui/pagination";
+import Link from "next/link";
 
 const BookList = ({ books, page, setPage, loading }) => {
   if (loading)
@@ -20,7 +21,8 @@ const BookList = ({ books, page, setPage, loading }) => {
     <>
       <div className="grid gap-6 mt-10 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
         {books.map((book, index) => (
-          <div
+          <Link
+            href={`/book/${book.edition_key?.[0]}`}
             key={index}
             className="border rounded p-4 bg-black text-white cursor-pointer"
           >
@@ -33,7 +35,7 @@ const BookList = ({ books, page, setPage, loading }) => {
               alt={book.title}
               width={200}
               height={300}
-              className="w-full h-[18rem] object-cover rounded mb-4"
+              className="w-full h-[18rem] object-contain rounded mb-6"
             />
             <h2 className="text-xl font-bold mb-2">{book.title}</h2>
             <p className="text-sm text-gray-700">
@@ -42,7 +44,7 @@ const BookList = ({ books, page, setPage, loading }) => {
             <p className="text-sm text-gray-600">
               First Published: {book.first_publish_year || "N/A"}
             </p>
-          </div>
+          </Link>
         ))}
       </div>
       <Pagination className="pt-[2rem]">
