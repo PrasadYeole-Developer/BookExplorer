@@ -22,7 +22,7 @@ const BookList = ({ books, page, setPage, loading }) => {
       <div className="grid gap-6 mt-10 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
         {books.map((book, index) => (
           <Link
-            href={`/book/${book.edition_key?.[0]}`}
+            href={`/book/${book.cover_edition_key}`}
             key={index}
             className="border rounded p-4 bg-black text-white cursor-pointer"
           >
