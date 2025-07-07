@@ -25,7 +25,7 @@ const Home = () => {
   }, [page]);
 
   return (
-    <div className="w-full min-h-screen bg-black text-white p-8 select-none">
+    <div className="w-full min-h-screen bg-[#0A0A0A] text-white p-8 select-none">
       <Header />
       <Search
         setBooks={setBooks}

@@ -1,5 +1,7 @@
+"use client";
 import Link from "next/link";
 import React from "react";
+import gsap from "gsap";
 
 const Header = () => {
   return (
@@ -7,12 +9,26 @@ const Header = () => {
       <h1 className="scroll-m-20 text-4xl font-extrabold tracking-tight text-balance mb-6">
         Book Explorer{" "}
       </h1>
-      <Link
-        className="scroll-m-20 mb-5 text-2xl font-semibold tracking-tight hover:underline underline-offset-2"
-        href={"/about"}
-      >
-        About
-      </Link>
+      <nav className="flex gap-9 mt-[-2rem] mr-[0.5rem]">
+        <Link
+          className="scroll-m-20 text-lg font-semibold tracking-tight hover:text-[#6e6e6e]"
+          href={"/about"}
+        >
+          Home
+        </Link>
+        <Link
+          className="scroll-m-20 text-lg font-semibold tracking-tight hover:text-[#6e6e6e]"
+          href={"/about"}
+        >
+          About
+        </Link>
+        <Link
+          className="scroll-m-20 text-lg font-semibold tracking-tight hover:text-[#6e6e6e]"
+          href={"/about"}
+        >
+          Contact
+        </Link>
+      </nav>
     </header>
   );
 };

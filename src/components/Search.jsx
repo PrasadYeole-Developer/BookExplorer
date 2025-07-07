@@ -26,7 +26,7 @@ const Search = ({ query, setQuery, setBooks, setPage, setLoading }) => {
       <Button
         onClick={handleSearch}
         variant="outline"
-        className="bg-[#111] rounded cursor-pointer border-none p-6 text-md hover:text-white hover:bg-gray-900"
+        className="bg-[#1d1d1d] rounded cursor-pointer border-none p-5.5 text-md hover:text-white hover:bg-[#161616]"
       >
         Search
       </Button>
