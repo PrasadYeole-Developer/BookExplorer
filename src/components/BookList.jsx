@@ -11,19 +11,17 @@ import {
 } from "@/components/ui/pagination";
 import Link from "next/link";
 import { Skeleton } from "./ui/skeleton";
+import axios from "axios";
 
 const BookList = ({ books, page, setPage, loading }) => {
   if (loading)
     return (
       <div className="grid gap-6 mt-10 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
         {Array.from({ length: 8 }).map((_, index) => (
-          <div
-            key={index}
-            className="border rounded p-4 bg-[#111] text-white cursor-pointer"
-          >
-            <Skeleton className="w-full h-[18rem] rounded mb-6" />
+          <div key={index} className="p-4 bg-[#111] text-white cursor-pointer">
+            <Skeleton className="w-full h-[18rem] mb-6" />
             <Skeleton className="h-6 w-3/4 mb-2" />
-            <Skeleton className="h-4 w-1/2 mb-1" />
+            <Skeleton className="h-4 w-1/2 mb-2" />
             <Skeleton className="h-4 w-1/3" />
           </div>
         ))}

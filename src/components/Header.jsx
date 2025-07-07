@@ -6,27 +6,18 @@ import gsap from "gsap";
 const Header = () => {
   return (
     <header className="flex items-center justify-between">
-      <h1 className="scroll-m-20 text-4xl font-extrabold tracking-tight text-balance mb-6">
+      <h1
+        onClick={() => window.location.reload()}
+        className="scroll-m-20 text-4xl font-extrabold tracking-tight text-balance mb-6 cursor-pointer"
+      >
         Book Explorer{" "}
       </h1>
-      <nav className="flex gap-9 mt-[-2rem] mr-[0.5rem]">
+      <nav className="mt-[-1.5rem] mr-[0.5rem]">
         <Link
-          className="scroll-m-20 text-lg font-semibold tracking-tight hover:text-[#6e6e6e]"
-          href={"/about"}
-        >
-          Home
-        </Link>
-        <Link
-          className="scroll-m-20 text-lg font-semibold tracking-tight hover:text-[#6e6e6e]"
+          className="scroll-m-20 text-xl font-semibold hover:text-[#a2a1a1]"
           href={"/about"}
         >
           About
-        </Link>
-        <Link
-          className="scroll-m-20 text-lg font-semibold tracking-tight hover:text-[#6e6e6e]"
-          href={"/about"}
-        >
-          Contact
         </Link>
       </nav>
     </header>
