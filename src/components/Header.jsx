@@ -2,6 +2,7 @@
 import Link from "next/link";
 import React from "react";
 import gsap from "gsap";
+import ToggleTheme from "./ToggleTheme";
 
 const Header = () => {
   return (
@@ -14,11 +15,12 @@ const Header = () => {
       </h1>
       <nav className="mt-[-1.5rem] mr-[0.5rem]">
         <Link
-          className="scroll-m-20 text-xl font-semibold hover:text-[#a2a1a1]"
+          className="scroll-m-20 text-xl font-semibold hover:text-[#363636] dark:hover:text-[#a2a1a1] pr-[2rem]"
           href={"/about"}
         >
           About
         </Link>
+        <ToggleTheme />
       </nav>
     </header>
   );

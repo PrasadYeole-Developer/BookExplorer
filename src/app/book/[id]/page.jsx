@@ -11,7 +11,7 @@ const languageMap = {
 };
 
 const BookDetails = async ({ params }) => {
-  const { id } = await params;
+  const { id } = params;
   let book = null;
 
   try {
@@ -38,58 +38,74 @@ const BookDetails = async ({ params }) => {
     ) || [];
 
   return (
-    <div className="min-h-screen bg-black text-white p-6">
-      <Link
-        href="/"
-        className="text-xl underline underline-offset-2 mb-6 inline-block"
-      >
-        ← Back to Home
-      </Link>
+    <section className="w-full min-h-screen bg-white text-[#1d1d1d] dark:bg-[#1d1d1d] dark:text-white select-none">
+      <div className="min-h-screen bg-white text-[#1d1d1d] dark:bg-[#1d1d1d] dark:text-white px-4 py-6 md:px-10 lg:px-20 mx-auto max-w-5xl">
+        <Link
+          className="hidden lg:block text-5xl absolute top-5 left-20 hover:text-gray-700 dark:hover:text-gray-200"
+          href="/"
+        >
+          ➥
+        </Link>
 
-      <h1 className="text-5xl font-bold mb-4">{book.title}</h1>
+        <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-6">
+          {book.title}
+        </h1>
 
-      {book.covers?.[0] && (
-        <Image
-          src={`https://covers.openlibrary.org/b/id/${book.covers[0]}-L.jpg`}
-          alt={book.title}
-          width={300}
-          height={400}
-          className="mb-6 rounded"
-        />
-      )}
-
-      <p className="text-lg mb-6">{description}</p>
-
-      <div className="text-md text-gray-300 space-y-2">
-        <p>
-          <strong>Published:</strong> {book.publish_date || "N/A"}
-        </p>
-        <p>
-          <strong>Pages:</strong> {book.number_of_pages || "N/A"}
-        </p>
-        <p>
-          <strong>Languages:</strong> {languageNames.join(", ") || "N/A"}
-        </p>
-        {book.contributions?.length > 0 && (
-          <p>
-            <strong>Contributors:</strong> {book.contributions.join(", ")}
-          </p>
+        {book.covers?.[0] && (
+          <div className="flex justify-center mb-6 bg-white text-[#1d1d1d] dark:bg-[#1d1d1d] dark:text-white">
+            <Image
+              src={`https://covers.openlibrary.org/b/id/${book.covers[0]}-L.jpg`}
+              alt={book.title}
+              width={300}
+              height={400}
+              className="rounded shadow-md"
+            />
+          </div>
         )}
-        {book.subjects?.length > 0 && (
+
+        <p className="text-base md:text-lg text-gray-800 dark:text-gray-200 leading-relaxed mb-8">
+          {description}
+        </p>
+
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 text-sm md:text-base text-gray-800 dark:text-gray-400 mb-6">
           <p>
-            <strong>Subjects:</strong>{" "}
-            {book.subjects.map((subj, i) => (
-              <span
-                key={i}
-                className="bg-gray-800 text-white px-2 py-1 rounded mr-2 inline-block text-sm"
-              >
-                {subj}
-              </span>
-            ))}
+            <strong className="text-black dark:text-white">Published:</strong>{" "}
+            {book.publish_date || "N/A"}
           </p>
+          <p>
+            <strong className="text-black dark:text-white">Pages:</strong>{" "}
+            {book.number_of_pages || "N/A"}
+          </p>
+          <p>
+            <strong className="text-black dark:text-white">Languages:</strong>{" "}
+            {languageNames.join(", ") || "N/A"}
+          </p>
+
+          {book.contributions?.length > 0 && (
+            <p>
+              <strong className="text-black dark:text-white">Contributors:</strong>{" "}
+              {book.contributions.join(", ")}
+            </p>
+          )}
+        </div>
+
+        {book.subjects?.length > 0 && (
+          <div className="mb-4">
+            <strong className="bg-white text-[#1d1d1d] dark:bg-[#1d1d1d] dark:text-white block mb-2 ">Subjects:</strong>
+            <div className="flex flex-wrap gap-2">
+              {book.subjects.map((subj, i) => (
+                <span
+                  key={i}
+                  className="bg-gray-500 dark:bg-gray-800 px-3 py-1 text-sm rounded-full text-white"
+                >
+                  {subj}
+                </span>
+              ))}
+            </div>
+          </div>
         )}
       </div>
-    </div>
+    </section>
   );
 };
 

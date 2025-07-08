@@ -2,7 +2,7 @@ import React from "react";
 
 const About = () => {
   return (
-    <div className="w-full min-h-screen bg-black text-white p-8">
+    <div className="w-full min-h-screen bg-white text-[#0A0A0A] dark:bg-[#0A0A0A] dark:text-white p-8">
       <h1 className="scroll-m-20 text-center text-7xl font-extrabold tracking-tight text-balance mb-6 hover:underline">
         Welcome to About Page!{" "}
       </h1>
