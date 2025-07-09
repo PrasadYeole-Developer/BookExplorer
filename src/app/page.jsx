@@ -9,7 +9,17 @@ const Home = () => {
   const [books, setBooks] = useState([]);
   const [page, setPage] = useState(1);
   const [query, setQuery] = useState("");
-  const [loading, setLoading] = useState(false);
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    const fetchDefaultBooks = async () => {
+      setLoading(true);
+      const res = await getBooks("Avengers", 1);
+      setBooks(res);
+      setLoading(false);
+    };
+    fetchDefaultBooks();
+  }, []);
 
   useEffect(() => {
     if (!query.trim()) return;
