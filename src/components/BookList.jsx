@@ -39,7 +39,7 @@ const BookList = ({ books, page, setPage, loading }) => {
           <Link
             href={`/book/${book.cover_edition_key}`}
             key={index}
-            className="border rounded p-4 bg-white text-[#111] dark:bg-[#111] dark:text-white cursor-pointer transform transition-transform duration-300 hover:scale-[1.01] hover:shadow-lg"
+            className="border rounded bg-[#f1f1f1] text-[#111] dark:bg-[#111] dark:text-white cursor-pointer transform transition-transform duration-300 hover:scale-[1.01] hover:shadow-lg dark:hover:shadow-[#111]"
           >
             <Image
               src={
@@ -50,15 +50,17 @@ const BookList = ({ books, page, setPage, loading }) => {
               alt={book.title}
               width={200}
               height={300}
-              className="w-full h-[18rem] object-cover object-top rounded mb-6"
+              className="w-full h-[18rem] object-contain pt-5 object-top pb-5"
             />
-            <h2 className="text-xl font-bold mb-2">{book.title}</h2>
-            <p className="text-sm text-gray-700">
-              Author: {book.author_name?.[0]}
-            </p>
-            <p className="text-sm text-gray-600">
-              First Published: {book.first_publish_year || "N/A"}
-            </p>
+            <div className="p-4">
+              <h2 className="text-xl font-bold mb-2">{book.title}</h2>
+              <p className="text-sm text-gray-700">
+                Author: {book.author_name?.[0]}
+              </p>
+              <p className="text-sm text-gray-600">
+                First Published: {book.first_publish_year || "N/A"}
+              </p>
+            </div>
           </Link>
         ))}
       </div>

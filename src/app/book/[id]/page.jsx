@@ -52,13 +52,13 @@ const BookDetails = async ({ params }) => {
         </h1>
 
         {book.covers?.[0] && (
-          <div className="flex justify-center mb-6 bg-white text-[#1d1d1d] dark:bg-[#1d1d1d] dark:text-white">
+          <div className="flex justify-center mb-6 bg-white text-[#1d1d1d] py-5 dark:bg-[#1d1d1d] dark:text-white">
             <Image
               src={`https://covers.openlibrary.org/b/id/${book.covers[0]}-L.jpg`}
               alt={book.title}
               width={300}
               height={400}
-              className="rounded shadow-md"
+              className="rounded shadow-md dark:shadow-[#111]"
             />
           </div>
         )}
