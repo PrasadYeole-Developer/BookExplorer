@@ -1,4 +1,6 @@
 "use client";
+import Lenis from "lenis";
+import "lenis/dist/lenis.css";
 import BookList from "@/components/BookList";
 import Header from "@/components/Header";
 import Loader from "@/components/Loader";
@@ -11,6 +13,21 @@ const Home = () => {
   const [page, setPage] = useState(1);
   const [query, setQuery] = useState("");
   const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    const lenis = new Lenis({
+      autoRaf: false,
+    });
+    function raf(time) {
+      lenis.raf(time);
+      requestAnimationFrame(raf);
+    }
+
+    requestAnimationFrame(raf);
+    return () => {
+      lenis.destroy();
+    };
+  }, []);
 
   useEffect(() => {
     const fetchDefaultBooks = async () => {
