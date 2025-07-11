@@ -33,12 +33,12 @@ const Home = () => {
   useEffect(() => {
     const fetchDefaultBooks = async () => {
       setLoading(true);
-      const res = await getBooks("Avengers", page);
+      const res = await getBooks("Avengers", 1);
       setBooks(res);
       setLoading(false);
     };
     fetchDefaultBooks();
-  }, [page]);
+  }, []);
 
   useEffect(() => {
     if (!query.trim()) return;
@@ -66,7 +66,13 @@ const Home = () => {
         setQuery={setQuery}
         setLoading={setLoading}
       />
-      <BookList books={books} page={page} setPage={setPage} loading={loading} />
+      <BookList
+        books={books}
+        page={page}
+        setPage={setPage}
+        loading={loading}
+        query={query}
+      />
     </div>
   );
 };

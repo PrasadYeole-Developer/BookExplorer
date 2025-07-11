@@ -12,7 +12,7 @@ import {
 import Link from "next/link";
 import { Skeleton } from "./ui/skeleton";
 
-const BookList = ({ books, page, setPage, loading }) => {
+const BookList = ({ books, page, setPage, loading, query }) => {
   if (loading)
     return (
       <div className="grid gap-6 mt-10 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
@@ -30,7 +30,11 @@ const BookList = ({ books, page, setPage, loading }) => {
       </div>
     );
   else if (!books || books.length === 0) {
-    return <p className="mt-10">No books found.</p>;
+    return (
+      <p className="mt-10 text-center text-lg">
+        No results found for <span className="font-semibold">{query}</span>.
+      </p>
+    );
   }
   return (
     <>
