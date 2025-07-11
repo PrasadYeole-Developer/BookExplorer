@@ -83,7 +83,9 @@ const BookDetails = async ({ params }) => {
 
           {book.contributions?.length > 0 && (
             <p>
-              <strong className="text-black dark:text-white">Contributors:</strong>{" "}
+              <strong className="text-black dark:text-white">
+                Contributors:
+              </strong>{" "}
               {book.contributions.join(", ")}
             </p>
           )}
@@ -91,7 +93,9 @@ const BookDetails = async ({ params }) => {
 
         {book.subjects?.length > 0 && (
           <div className="mb-4">
-            <strong className="bg-white text-[#1d1d1d] dark:bg-[#1d1d1d] dark:text-white block mb-2 ">Subjects:</strong>
+            <strong className="bg-white text-[#1d1d1d] dark:bg-[#1d1d1d] dark:text-white block mb-2 ">
+              Subjects:
+            </strong>
             <div className="flex flex-wrap gap-2">
               {book.subjects.map((subj, i) => (
                 <span

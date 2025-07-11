@@ -14,6 +14,27 @@ const Search = ({ query, setQuery, setBooks, setPage, setLoading }) => {
     setLoading(false);
     console.log(res);
   };
+
+  // Solution for Debouncing :
+  // const [debouncedQuery, setDebouncedQuery] = useState(query);
+  // useEffect(() => {
+  //   const handler = setTimeout(() => {
+  //     setDebouncedQuery(query);
+  //   }, 500);
+  //   return () => clearTimeout(handler);
+  // }, [query]);
+  // useEffect(() => {
+  //   const fetchBooks = async () => {
+  //     if (!debouncedQuery.trim()) return;
+  //     setLoading(true);
+  //     setPage(1);
+  //     const res = await getBooks(debouncedQuery, 1);
+  //     setBooks(res);
+  //     setLoading(false);
+  //   };
+  //   fetchBooks();
+  // }, [debouncedQuery]);
+
   return (
     <div className="search w-full mt-5 flex items-center gap-6 justify-between">
       <input

@@ -33,12 +33,12 @@ const Home = () => {
   useEffect(() => {
     const fetchDefaultBooks = async () => {
       setLoading(true);
-      const res = await getBooks("Avengers", 1);
+      const res = await getBooks("Avengers", page);
       setBooks(res);
       setLoading(false);
     };
     fetchDefaultBooks();
-  }, []);
+  }, [page]);
 
   useEffect(() => {
     if (!query.trim()) return;
