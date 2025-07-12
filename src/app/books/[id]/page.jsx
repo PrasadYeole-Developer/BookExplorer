@@ -73,6 +73,10 @@ const BookDetails = async ({ params }) => {
             {book.publish_date || "N/A"}
           </p>
           <p>
+            <strong className="text-black dark:text-white">Country:</strong>{" "}
+            {book.publish_country || "N/A"}
+          </p>
+          <p>
             <strong className="text-black dark:text-white">Pages:</strong>{" "}
             {book.number_of_pages || "N/A"}
           </p>
