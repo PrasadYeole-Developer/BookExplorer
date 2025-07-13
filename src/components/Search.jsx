@@ -3,6 +3,7 @@
 import React, { useState } from "react";
 import { Button } from "./ui/button";
 import getBooks from "@/lib/api";
+import { SearchIcon } from "lucide-react";
 
 const Search = ({ query, setQuery, setBooks, setPage, setLoading }) => {
   const handleSearch = async () => {
@@ -36,21 +37,23 @@ const Search = ({ query, setQuery, setBooks, setPage, setLoading }) => {
   // }, [debouncedQuery]);
 
   return (
-    <div className="search w-full mt-5 flex items-center gap-6 justify-between">
+    <div className="search w-full flex items-center gap-2">
       <input
         type="text"
-        className="w-full p-2 border-1 rounded"
+        className="w-md p-2 border-1 rounded"
         placeholder="Search"
         value={query}
         onChange={(e) => setQuery(e.target.value)}
+        
       />
       <Button
         onClick={handleSearch}
         variant="outline"
-        className="bg-gray-300 dark:bg-[#1d1d1d] rounded cursor-pointer border-none p-5.5 text-md hover:text-white hover:bg-[#161616]"
+        className="bg-gray-300 dark:bg-[#1d1d1d] rounded cursor-pointer border-none p-5 text-md hover:text-white hover:bg-[#161616] flex items-center justify-center"
       >
-        Search
+        <SearchIcon />
       </Button>
+      
     </div>
   );
 };

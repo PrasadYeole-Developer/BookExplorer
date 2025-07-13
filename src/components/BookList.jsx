@@ -58,10 +58,10 @@ const BookList = ({ books, page, setPage, loading, query }) => {
             />
             <div className="p-4">
               <h2 className="text-xl font-bold mb-2">{book.title}</h2>
-              <p className="text-sm text-gray-700">
+              <p className="text-sm text-gray-700 dark:text-gray-300">
                 Author: {book.author_name?.[0]}
               </p>
-              <p className="text-sm text-gray-600">
+              <p className="text-sm text-gray-600 dark:text-gray-400">
                 First Published: {book.first_publish_year || "N/A"}
               </p>
             </div>

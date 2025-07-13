@@ -33,7 +33,7 @@ const Home = () => {
   useEffect(() => {
     const fetchDefaultBooks = async () => {
       setLoading(true);
-      const res = await getBooks("Avengers", 1);
+      const res = await getBooks("Atomic Habits", 1);
       setBooks(res);
       setLoading(false);
     };
@@ -54,11 +54,10 @@ const Home = () => {
   }, [page]);
 
   return (
-    <div className="w-full min-h-screen bg-white text-[#0A0A0A] dark:bg-[#0A0A0A] dark:text-white p-8 select-none">
+    <div className="w-full min-h-screen bg-white text-[#0A0A0A] dark:bg-[#0A0A0A] dark:text-white p-6 select-none">
       <ProgressBar />
       <Loader />
-      <Header />
-      <Search
+      <Header
         setBooks={setBooks}
         page={page}
         setPage={setPage}
