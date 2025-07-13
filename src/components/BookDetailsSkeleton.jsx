@@ -3,7 +3,7 @@ import { Skeleton } from "@/components/ui/skeleton";
 
 const BookDetailsSkeleton = () => {
   return (
-    <div className="min-h-screen bg-white text-[#1d1d1d] dark:bg-[#1d1d1d] dark:text-white px-4 py-6 md:px-10 lg:px-20 mx-auto">
+    <div className="min-h-screen bg-[#f1f1f1] text-[#1d1d1d] dark:bg-[#1d1d1d] dark:text-[#f1f1f1] px-4 py-6 md:px-10 lg:px-20 mx-auto">
       <div className="mb-6">
         <Skeleton className="h-6 w-[120px]" />
       </div>

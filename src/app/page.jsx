@@ -8,12 +8,14 @@ import Search from "@/components/Search";
 import getBooks from "@/lib/api";
 import React, { useEffect, useState } from "react";
 import ProgressBar from "@/components/ProgressBar";
+import Filters from "@/components/Filters";
 
 const Home = () => {
   const [books, setBooks] = useState([]);
   const [page, setPage] = useState(1);
   const [query, setQuery] = useState("");
   const [loading, setLoading] = useState(true);
+  const [year, setYear] = useState("");
 
   useEffect(() => {
     const lenis = new Lenis({
@@ -33,7 +35,7 @@ const Home = () => {
   useEffect(() => {
     const fetchDefaultBooks = async () => {
       setLoading(true);
-      const res = await getBooks("Atomic Habits", 1);
+      const res = await getBooks("History", 1);
       setBooks(res);
       setLoading(false);
     };
@@ -65,12 +67,17 @@ const Home = () => {
         setQuery={setQuery}
         setLoading={setLoading}
       />
+      <Filters
+        year={year}
+        setYear={setYear}
+      />
       <BookList
         books={books}
         page={page}
         setPage={setPage}
         loading={loading}
         query={query}
+        year={year}
       />
     </div>
   );

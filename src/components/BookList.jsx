@@ -12,7 +12,13 @@ import {
 import Link from "next/link";
 import { Skeleton } from "./ui/skeleton";
 
-const BookList = ({ books, page, setPage, loading, query }) => {
+const BookList = ({ books, page, setPage, loading, query, year }) => {
+  const filteredBooks = books.filter((book) => {
+    if (!year || year === "all") return true;
+    const publishedYear = +book.first_publish_year;
+    const [start, end] = year.split("-").map(Number);
+    return publishedYear >= start && publishedYear <= end;
+  });
   if (loading)
     return (
       <div className="grid gap-6 mt-10 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
@@ -29,17 +35,18 @@ const BookList = ({ books, page, setPage, loading, query }) => {
         ))}
       </div>
     );
-  else if (!books || books.length === 0) {
+  else if (!books || books.length === 0 || filteredBooks.length === 0) {
     return (
       <p className="mt-10 text-center text-lg">
-        No results found for <span className="font-semibold">{query}</span>.
+        No results found for <span className="font-semibold">{query}</span>
       </p>
     );
   }
   return (
     <>
+      
       <div className="grid gap-6 mt-10 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
-        {books.map((book, index) => (
+        {filteredBooks.map((book, index) => (
           <Link
             href={`/books/${book.cover_edition_key}`}
             key={index}
@@ -68,7 +75,10 @@ const BookList = ({ books, page, setPage, loading, query }) => {
           </Link>
         ))}
       </div>
-      <Pagination className="pt-[2rem]">
+      <Pagination
+        className="pt-[2rem]"
+        onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
+      >
         <PaginationContent className="flex gap-[1rem] pr-[1.3rem]">
           <PaginationItem
             className="bg-white text-[#202020] dark:bg-[#202020] dark:text-white rounded cursor-pointer"
