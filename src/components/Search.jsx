@@ -40,20 +40,18 @@ const Search = ({ query, setQuery, setBooks, setPage, setLoading }) => {
     <div className="search w-full flex items-center gap-2">
       <input
         type="text"
-        className="w-md p-2 border-1 rounded"
+        className="w-[18rem] sm:w-sm lg:w-lg p-2 border-1 rounded bg-[#fdfdfd] dark:bg-[#1d1d1d]"
         placeholder="Search"
         value={query}
         onChange={(e) => setQuery(e.target.value)}
-        
       />
       <Button
         onClick={handleSearch}
         variant="outline"
-        className="bg-gray-300 dark:bg-[#1d1d1d] rounded cursor-pointer border-none p-5 text-md hover:text-white hover:bg-[#161616] flex items-center justify-center"
+        className="bg-gray-200 dark:bg-[#1d1d1d] rounded cursor-pointer border-none p-5 text-md hover:text-white hover:bg-[#161616] flex items-center justify-center"
       >
         <SearchIcon />
       </Button>
-      
     </div>
   );
 };
