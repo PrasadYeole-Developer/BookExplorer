@@ -44,7 +44,11 @@ const BookList = ({ books, page, setPage, loading, query, year }) => {
   }
   return (
     <>
-      
+      <p className="text-md text-[#111] dark:text-[#f1f1f1] my-4 font-medium">
+        Showing {filteredBooks.length} of {books.length} results
+        {query && ` for “${query}”`}
+        {year && ` — ${year}`}
+      </p>
       <div className="grid gap-6 mt-10 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
         {filteredBooks.map((book, index) => (
           <Link
