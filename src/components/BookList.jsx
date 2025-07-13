@@ -36,17 +36,12 @@ const BookList = ({ books, page, setPage, loading, query, year }) => {
       </div>
     );
   else if (!books || books.length === 0 || filteredBooks.length === 0) {
-    return (
-      <p className="mt-10 text-center text-lg">
-        No results found for <span className="font-semibold">{query}</span>
-      </p>
-    );
+    return <p className="mt-10 text-center text-lg">No results found.</p>;
   }
   return (
     <>
       <p className="text-md text-[#111] dark:text-[#f1f1f1] my-4 font-medium">
         Showing {filteredBooks.length} of {books.length} results
-        {query && ` for “${query}”`}
         {year && ` — ${year}`}
       </p>
       <div className="grid gap-6 mt-10 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">

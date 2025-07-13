@@ -4,7 +4,6 @@ import "lenis/dist/lenis.css";
 import BookList from "@/components/BookList";
 import Header from "@/components/Header";
 import Loader from "@/components/Loader";
-import Search from "@/components/Search";
 import getBooks from "@/lib/api";
 import React, { useEffect, useState } from "react";
 import ProgressBar from "@/components/ProgressBar";
@@ -67,10 +66,7 @@ const Home = () => {
         setQuery={setQuery}
         setLoading={setLoading}
       />
-      <Filters
-        year={year}
-        setYear={setYear}
-      />
+      <Filters year={year} setYear={setYear} />
       <BookList
         books={books}
         page={page}
