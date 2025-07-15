@@ -12,7 +12,7 @@ import {
 import Link from "next/link";
 import { Skeleton } from "./ui/skeleton";
 
-const BookList = ({ books, page, setPage, loading, query, year }) => {
+const BookList = ({ books, page, setPage, loading, year }) => {
   const filteredBooks = books.filter((book) => {
     if (!year || year === "all") return true;
     const publishedYear = +book.first_publish_year;
