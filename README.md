@@ -63,7 +63,7 @@ A responsive and user-friendly web application to **search, filter, and explore 
 1. **Clone the repository**:
 
 ```bash
-   git clone https://github.com/YOUR_USERNAME/book-explorer.git
+   git clone https://github.com/PrasadYeole-Developer/BookExplorer.git
    cd book-explorer
 ```
 2. **Install dependencies**:
